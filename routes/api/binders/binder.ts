@@ -1,8 +1,11 @@
-const router = require('express').Router();
-import BinderController from '../../../controllers/BinderController';
+import { Router } from "express";
+import BinderController from "../../../controllers/BinderController";
 
+const router = Router();
 
-router.route('/')
+router
+  .route("/")
   .get(BinderController.findAll)
+  .post(BinderController.createBinder);
 
 export default router;
