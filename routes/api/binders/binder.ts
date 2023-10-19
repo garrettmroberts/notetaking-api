@@ -1,11 +1,11 @@
-import { Router } from "express";
+import express from "express";
 import BinderController from "../../../controllers/BinderController";
 
-const router = Router();
+const router = express.Router({ mergeParams: true });
 
 router
   .route("/")
   .get(BinderController.findAll)
   .post(BinderController.createBinder);
 
-export default router;
+export { router as BinderRoutes };

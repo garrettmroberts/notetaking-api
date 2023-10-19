@@ -5,7 +5,7 @@ type BinderProps = {
   title: string;
   meta: {
     color: string;
-    tags: [{ type: string }];
+    tags?: [{ type: string }];
   };
 };
 
@@ -15,14 +15,13 @@ export default {
     return res.json(queryResponse);
   },
   createBinder: async (req: Request<BinderProps>, res: Response) => {
-    if (req.body.title && req.body.meta.color && req.body.meta.tags) {
+    if (req.body.title && req.body.meta.color) {
       try {
         const queryResponse = await Binder.create({ ...req.body });
         res.json(queryResponse);
       } catch {
-        res.json({ message: "Binder creation failure." }).status(500);
+        res.status(500).json({ message: "Binder creation failure." });
       }
-      res.json({ message: "Binder creation failure." }).status(500);
     }
   }
 };
