@@ -8,4 +8,9 @@ router
   .get(BinderController.findAll)
   .post(BinderController.createBinder);
 
+router
+  .route("/:binderId")
+  .get(BinderController.findById)
+  .delete(BinderController.deleteById);
+
 export { router as BinderRoutes };
