@@ -9,6 +9,6 @@ const FolderSchema = new Schema({
   pages: [{ type: Schema.Types.ObjectId, ref: "Page" }]
 });
 
-const Folder = mongoose.models.Binder || mongoose.model("Binder", FolderSchema);
+const Folder = mongoose.models.Folder || mongoose.model("Folder", FolderSchema);
 
 export default Folder;
